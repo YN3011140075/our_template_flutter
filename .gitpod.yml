@@ -1,6 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
+  - before: sudo mount -t tmpfs shm -osize=4096m /dev/shm
+  
   - init: |
       flutter channel beta
       flutter upgrade
@@ -10,17 +12,11 @@ tasks:
       yes | flutter doctor --android-licenses
 
       flutter doctor
-
-      flutter pub get
-
-      flutter build -v bundle
-      flutter build -v web
-      flutter build -v appbundle
-      flutter build -v apk
       
   - command: |
       flutter devices
-      sleep 10
+      
+      flutter pub get
       flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0
 
 
