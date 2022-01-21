@@ -8,7 +8,6 @@ tasks:
       flutter upgrade
 
       flutter config --enable-web
-      flutter config --android-sdk /home/gitpod/androidsdk
       yes | flutter doctor --android-licenses
 
       flutter doctor
