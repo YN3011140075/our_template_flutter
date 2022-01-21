@@ -1,8 +1,9 @@
 image:
   file: .gitpod.Dockerfile
+
 tasks:
   - before: sudo mount -t tmpfs shm -osize=4096m /dev/shm
-  
+
   - init: |
       flutter channel beta
       flutter upgrade
@@ -11,7 +12,7 @@ tasks:
       yes | flutter doctor --android-licenses
 
       flutter doctor
-      
+
   - command: |
       flutter devices
       
@@ -22,13 +23,14 @@ tasks:
 ports:
   - port: 5900
     onOpen: ignore
-    # vnc
+# vnc
   - port: 6080
     onOpen: open-preview
-    # flutter
+# flutter
   - port: 8080
     onOpen: open-preview
 
 vscode:
   extensions:
     - dart-code.flutter
+    - dart-code.dart-code
