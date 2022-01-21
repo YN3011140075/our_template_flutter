@@ -15,18 +15,19 @@ tasks:
 
   - command: |
       flutter devices
-      
+
       flutter pub get
       flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0
-
 
 ports:
   - port: 5900
     onOpen: ignore
-# vnc
+
+  # no-vnc web client
   - port: 6080
-    onOpen: open-preview
-# flutter
+    onOpen: ignore
+
+  # flutter web server
   - port: 8080
     onOpen: open-preview
 
